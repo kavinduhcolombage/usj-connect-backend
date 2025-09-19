@@ -23,8 +23,7 @@ public class MyUserDetailsService implements UserDetailsService{
             UserDto dto = userService.getUserByEmail(email);
             return new CustomUserDetails(dto.getId(), dto.getEmail(), dto.getName(), dto.getPassword(), dto.getProfileId(), dto.getRole(), new ArrayList<>());
         } catch (JobPortalException e) {
-            e.printStackTrace();
+            throw new UsernameNotFoundException("User not found with email: " + email, e);
         }
-        return null;
     }
 }
