@@ -40,5 +40,12 @@ public class  ProfileController {
         return new ResponseEntity<>(profileService.updateProfile(profileDto), HttpStatus.OK);
 
     }
+
+    @GetMapping("/getAllStudentsProfiles")
+    public ResponseEntity<List<ProfileDto>> getAllStudentsProfiles()throws JobPortalException{
+
+        return new ResponseEntity<>(profileService.getAllStudentsProfiles(), HttpStatus.OK);
+
+    }
     
 }
